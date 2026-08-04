@@ -3,7 +3,7 @@
 // =====================================
 
 // Vul hier jouw server-IP in
-const SERVER_IP = "play.wondervalleymc.nl";
+const SERVER_IP = "wondervalleymc.minecraftserver.nl";
 
 // ----------------------------
 // Minecraft Server Status
