@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WonderValleyMC | Home</title>
+    <title>WonderValleyMC | De Magische Minecraft Server</title>
 
-    <meta name="description" content="Welkom op WonderValleyMC - De gezelligste Nederlandse Minecraft server!">
-
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Welkom op WonderValleyMC! Beleef een magisch avontuur op onze Nederlandse Minecraft server.">
 
     <link rel="icon" href="favicon.png">
+
+    <link rel="stylesheet" href="style.css">
 
     <script src="script.js" defer></script>
 
@@ -28,13 +28,17 @@
 
             <div class="logo">
 
-                <img src="logo.png" alt="WonderValleyMC Logo">
+                <a href="index.html">
+
+                    <img src="logo.png" alt="WonderValleyMC Logo">
+
+                </a>
 
             </div>
 
             <ul>
 
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="ranks.html">Ranks</a></li>
                 <li><a href="staff.html">Staff</a></li>
                 <li><a href="regels.html">Regels</a></li>
@@ -47,185 +51,177 @@
 
     </header>
 
-    <section class="hero">
+    <main>
 
-        <div class="hero-content">
+        <section class="hero">
 
-            <img class="hero-logo" src="logo.png">
+            <div class="hero-content">
 
-            <h1>Welkom bij WonderValleyMC</h1>
+                <img class="hero-logo" src="logo.png" alt="WonderValleyMC">
 
-            <p>
-
-                Beleef een magisch avontuur vol gezelligheid,
-
-                unieke features en een fantastische community.
-
-            </p>
-
-            <div class="buttons">
-
-                <button onclick="copyIP()">
-
-                    Server IP Kopiëren
-
-                </button>
-
-                <a href="#" class="discord">
-
-                    Discord
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="status">
-
-        <h2>Server Status</h2>
-
-        <div class="status-box">
-
-            <div id="serverStatus">
-
-                Status laden...
-
-            </div>
-
-            <div id="playerCount"></div>
-
-            <div id="serverVersion"></div>
-
-        </div>
-
-    </section>
-
-    <section class="features">
-
-        <h2>Waarom WonderValleyMC?</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>🌟 Survival</h3>
+                <h1>Welkom bij WonderValleyMC</h1>
 
                 <p>
 
-                    Speel samen met vrienden op een stabiele survivalserver.
+                    Ontdek een unieke Nederlandse Minecraft-server vol avontuur,
+                    gezelligheid, economy, events en een geweldige community.
+
+                </p>
+
+                <div class="buttons">
+
+                    <button onclick="copyIP()">
+
+                        📋 Kopieer Server IP
+
+                    </button>
+
+                    <a class="discord"
+                       href="https://discord.gg/JOUWLINK"
+                       target="_blank">
+
+                        💬 Discord
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="status">
+
+            <h2>Live Serverstatus</h2>
+
+            <div class="status-box">
+
+                <div id="serverStatus">
+
+                    Status laden...
+
+                </div>
+
+                <div id="playerCount"></div>
+
+                <div id="serverVersion"></div>
+
+            </div>
+
+        </section>
+
+        <section class="features">
+
+            <h2>Waarom WonderValleyMC?</h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>🏡 Survival</h3>
+
+                    <p>
+                        Een stabiele survivalwereld waar jij samen met vrienden kunt bouwen.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>💰 Economy</h3>
+
+                    <p>
+                        Koop, verkoop en verdien geld via een uitgebreide economie.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>🛡️ Claims</h3>
+
+                    <p>
+                        Bescherm jouw builds eenvoudig tegen griefers.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>🎁 Dagelijkse Rewards</h3>
+
+                    <p>
+                        Log iedere dag in voor gratis beloningen.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>🎉 Events</h3>
+
+                    <p>
+                        Regelmatig leuke evenementen met unieke prijzen.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>👥 Community</h3>
+
+                    <p>
+                        Een gezellige Nederlandse community waar iedereen welkom is.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="news">
+
+            <h2>Laatste Nieuws</h2>
+
+            <div class="news-card">
+
+                <h3>🚀 WonderValleyMC opent binnenkort!</h3>
+
+                <p>
+
+                    We zijn druk bezig met de laatste voorbereidingen.
+                    Houd onze Discord in de gaten voor de officiële openingsdatum.
 
                 </p>
 
             </div>
 
-            <div class="card">
+        </section>
 
-                <h3>🏡 Claims</h3>
+        <section class="join">
 
-                <p>
+            <h2>Kom vandaag nog spelen!</h2>
 
-                    Bescherm jouw builds met een eenvoudig claimsysteem.
+            <h3 id="serverip">
 
-                </p>
+                wondervalleymc.minecraftserver.nl
 
-            </div>
+            </h3>
 
-            <div class="card">
+            <button onclick="copyIP()">
 
-                <h3>🎁 Dagelijkse Rewards</h3>
+                📋 Kopieer Server IP
 
-                <p>
+            </button>
 
-                    Verdien iedere dag leuke beloningen.
+        </section>
 
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>💰 Economy</h3>
-
-                <p>
-
-                    Koop, verkoop en bouw jouw rijkdom op.
-
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>🎉 Events</h3>
-
-                <p>
-
-                    Regelmatig leuke evenementen voor alle spelers.
-
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>👥 Community</h3>
-
-                <p>
-
-                    Een vriendelijke Nederlandse Minecraft-community.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="news">
-
-        <h2>Laatste Nieuws</h2>
-
-        <div class="news-card">
-
-            <h3>Opening binnenkort!</h3>
-
-            <p>
-
-                Binnenkort opent WonderValleyMC haar deuren.
-
-                Houd de Discord in de gaten voor alle updates!
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <section class="join">
-
-        <h2>Speel vandaag nog mee!</h2>
-
-        <h3 id="serverip">
-
-            wondervalleymc.minecraftserver.nl
-
-        </h3>
-
-        <button onclick="copyIP()">
-
-            Kopieer Server IP
-
-        </button>
-
-    </section>
+    </main>
 
     <footer>
 
-        © 2026 WonderValleyMC
+        <p>© 2026 WonderValleyMC • Alle rechten voorbehouden.</p>
 
     </footer>
 
