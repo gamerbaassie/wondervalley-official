@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WonderValleyMC | Home</title>
+
+    <meta name="description" content="Welkom op WonderValleyMC - De gezelligste Nederlandse Minecraft server!">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="favicon.png">
+
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div id="particles"></div>
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+
+                <img src="logo.png" alt="WonderValleyMC Logo">
+
+            </div>
+
+            <ul>
+
+                <li><a href="#">Home</a></li>
+                <li><a href="ranks.html">Ranks</a></li>
+                <li><a href="staff.html">Staff</a></li>
+                <li><a href="regels.html">Regels</a></li>
+                <li><a href="nieuws.html">Nieuws</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <img class="hero-logo" src="logo.png">
+
+            <h1>Welkom bij WonderValleyMC</h1>
+
+            <p>
+
+                Beleef een magisch avontuur vol gezelligheid,
+
+                unieke features en een fantastische community.
+
+            </p>
+
+            <div class="buttons">
+
+                <button onclick="copyIP()">
+
+                    Server IP Kopiëren
+
+                </button>
+
+                <a href="#" class="discord">
+
+                    Discord
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="status">
+
+        <h2>Server Status</h2>
+
+        <div class="status-box">
+
+            <div id="serverStatus">
+
+                Status laden...
+
+            </div>
+
+            <div id="playerCount"></div>
+
+            <div id="serverVersion"></div>
+
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <h2>Waarom WonderValleyMC?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🌟 Survival</h3>
+
+                <p>
+
+                    Speel samen met vrienden op een stabiele survivalserver.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🏡 Claims</h3>
+
+                <p>
+
+                    Bescherm jouw builds met een eenvoudig claimsysteem.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎁 Dagelijkse Rewards</h3>
+
+                <p>
+
+                    Verdien iedere dag leuke beloningen.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💰 Economy</h3>
+
+                <p>
+
+                    Koop, verkoop en bouw jouw rijkdom op.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎉 Events</h3>
+
+                <p>
+
+                    Regelmatig leuke evenementen voor alle spelers.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>👥 Community</h3>
+
+                <p>
+
+                    Een vriendelijke Nederlandse Minecraft-community.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="news">
+
+        <h2>Laatste Nieuws</h2>
+
+        <div class="news-card">
+
+            <h3>Opening binnenkort!</h3>
+
+            <p>
+
+                Binnenkort opent WonderValleyMC haar deuren.
+
+                Houd de Discord in de gaten voor alle updates!
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="join">
+
+        <h2>Speel vandaag nog mee!</h2>
+
+        <h3 id="serverip">
+
+            play.wondervalleymc.nl
+
+        </h3>
+
+        <button onclick="copyIP()">
+
+            Kopieer Server IP
+
+        </button>
+
+    </section>
+
+    <footer>
+
+        © 2026 WonderValleyMC
+
+    </footer>
+
+</body>
+
+</html>
