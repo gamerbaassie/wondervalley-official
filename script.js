@@ -1,51 +1,85 @@
-// =====================================
-// WonderValleyMC Script
-// =====================================
+// ========================================
+// WonderValleyMC
+// Script.js
+// ========================================
 
-// Vul hier jouw server-IP in
+// Server IP
 const SERVER_IP = "wondervalleymc.minecraftserver.nl";
 
-// ----------------------------
-// Minecraft Server Status
-// ----------------------------
+// Elementen
+const statusElement = document.getElementById("serverStatus");
+const playerElement = document.getElementById("playerCount");
+const versionElement = document.getElementById("serverVersion");
+
+// ----------------------
+// Server Status
+// ----------------------
 
 async function updateServerStatus() {
 
     try {
 
-        const response = await fetch(
-            `https://api.mcsrvstat.us/3/${SERVER_IP}`
-        );
-
+        const response = await fetch(`https://api.mcsrvstat.us/3/${SERVER_IP}`);
         const data = await response.json();
-
-        const status = document.getElementById("serverStatus");
-        const players = document.getElementById("playerCount");
-        const version = document.getElementById("serverVersion");
 
         if (data.online) {
 
-            status.innerHTML = "🟢 Server Online";
+            statusElement.innerHTML = "🟢 <strong>ONLINE</strong>";
 
-            players.innerHTML =
+            playerElement.innerHTML =
                 `👥 ${data.players.online} / ${data.players.max} spelers`;
 
-            version.innerHTML =
-                `📦 Versie ${data.version}`;
+            versionElement.innerHTML =
+                `📦 ${data.version}`;
 
-        } else {
+            // MOTD toevoegen
+            if(data.motd && data.motd.clean){
 
-            status.innerHTML = "🔴 Server Offline";
+                versionElement.innerHTML +=
+                    `<br>💬 ${data.motd.clean.join("<br>")}`;
 
-            players.innerHTML = "";
+            }
 
-            version.innerHTML = "";
+            // Server icon tonen
+            if(data.icon){
+
+                let img = document.getElementById("serverIcon");
+
+                if(!img){
+
+                    img = document.createElement("img");
+                    img.id = "serverIcon";
+                    img.style.width = "80px";
+                    img.style.marginBottom = "20px";
+                    img.style.borderRadius = "12px";
+
+                    document.querySelector(".status-box")
+                        .prepend(img);
+
+                }
+
+                img.src = data.icon;
+
+            }
 
         }
 
-    } catch (error) {
+        else{
 
-        document.getElementById("serverStatus").innerHTML =
+            statusElement.innerHTML = "🔴 <strong>OFFLINE</strong>";
+
+            playerElement.innerHTML = "";
+
+            versionElement.innerHTML =
+                "De server is momenteel niet bereikbaar.";
+
+        }
+
+    }
+
+    catch(e){
+
+        statusElement.innerHTML =
             "⚠ Kan serverstatus niet ophalen.";
 
     }
@@ -54,30 +88,39 @@ async function updateServerStatus() {
 
 updateServerStatus();
 
-// elke minuut vernieuwen
-setInterval(updateServerStatus, 60000);
+setInterval(updateServerStatus,60000);
 
-// ----------------------------
-// Server IP kopiëren
-// ----------------------------
+// ----------------------
+// Kopieer IP
+// ----------------------
 
-function copyIP() {
+function copyIP(){
 
     navigator.clipboard.writeText(SERVER_IP);
 
-    alert("Server IP gekopieerd!\n\n" + SERVER_IP);
+    const button = event.target;
+
+    const oldText = button.innerHTML;
+
+    button.innerHTML = "✅ Gekopieerd!";
+
+    setTimeout(()=>{
+
+        button.innerHTML = oldText;
+
+    },2000);
 
 }
 
-// ----------------------------
-// Scroll animaties
-// ----------------------------
+// ----------------------
+// Fade Animaties
+// ----------------------
 
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(entries=>{
 
-    entries.forEach(entry => {
+    entries.forEach(entry=>{
 
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting){
 
             entry.target.classList.add("show");
 
@@ -85,15 +128,11 @@ const observer = new IntersectionObserver(entries => {
 
     });
 
-}, {
-
-    threshold: 0.15
-
 });
 
 document.querySelectorAll(
 ".card,.status-box,.news-card,.join,.hero-content"
-).forEach(el => {
+).forEach(el=>{
 
     el.classList.add("fade-up");
 
@@ -101,93 +140,68 @@ document.querySelectorAll(
 
 });
 
-// ----------------------------
-// Gouden deeltjes
-// ----------------------------
-
-const particles = document.getElementById("particles");
-
-for(let i = 0; i < 40; i++){
-
-    const dot = document.createElement("div");
-
-    dot.style.position = "absolute";
-
-    dot.style.width = Math.random()*5+2+"px";
-
-    dot.style.height = dot.style.width;
-
-    dot.style.borderRadius = "50%";
-
-    dot.style.background = "gold";
-
-    dot.style.opacity = Math.random()*0.5;
-
-    dot.style.left = Math.random()*100+"%";
-
-    dot.style.top = Math.random()*100+"%";
-
-    dot.style.boxShadow =
-    "0 0 10px gold";
-
-    dot.style.animation =
-    `float${i} ${8+Math.random()*12}s linear infinite`;
-
-    particles.appendChild(dot);
-
-    const style = document.createElement("style");
-
-    style.innerHTML = `
-    @keyframes float${i}{
-
-        0%{
-
-            transform:
-            translateY(0px);
-
-        }
-
-        50%{
-
-            transform:
-            translateY(-40px);
-
-        }
-
-        100%{
-
-            transform:
-            translateY(0px);
-
-        }
-
-    }
-    `;
-
-    document.head.appendChild(style);
-
-}
-
-// ----------------------------
-// Navbar achtergrond
-// ----------------------------
+// ----------------------
+// Header Scroll Effect
+// ----------------------
 
 window.addEventListener("scroll",()=>{
 
     const header = document.querySelector("header");
 
-    if(window.scrollY > 50){
+    if(window.scrollY>50){
 
-        header.style.background =
-        "rgba(0,0,0,.82)";
+        header.style.background="rgba(0,0,0,.90)";
 
     }
 
     else{
 
-        header.style.background =
-        "rgba(0,0,0,.55)";
+        header.style.background="rgba(0,0,0,.55)";
 
     }
 
 });
+
+// ----------------------
+// Gouden Particles
+// ----------------------
+
+const particleContainer = document.getElementById("particles");
+
+for(let i=0;i<50;i++){
+
+    const particle=document.createElement("span");
+
+    particle.style.position="absolute";
+    particle.style.width=Math.random()*6+2+"px";
+    particle.style.height=particle.style.width;
+    particle.style.left=Math.random()*100+"%";
+    particle.style.top=Math.random()*100+"%";
+    particle.style.borderRadius="50%";
+    particle.style.background="#FFD54D";
+    particle.style.opacity=Math.random()*0.6;
+
+    particle.animate([
+
+        {
+            transform:"translateY(0px)"
+        },
+
+        {
+            transform:"translateY(-40px)"
+        },
+
+        {
+            transform:"translateY(0px)"
+        }
+
+    ],{
+
+        duration:6000+Math.random()*6000,
+        iterations:Infinity
+
+    });
+
+    particleContainer.appendChild(particle);
+
+}
